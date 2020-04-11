@@ -10,25 +10,28 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
+    //   justifyContent: 'center',
+      alignItems: 'center',
       flexWrap: 'wrap',
-      '& > *': {
-        margin: theme.spacing(1),
-        width: theme.spacing(16),
-        height: theme.spacing(16),
-      },
+      width: '500px',
+      padding: '25px'
+
+    //   '& > *': {
+    // margin: theme.spacing(1),
+    //     width: theme.spacing(16),
+    //     height: theme.spacing(16),
+    //   },
     },
   }));
 
 const Car = (props) => {
     const classes = useStyles();
-
     const id = props.match.params.id
     console.log(props.match.params)
     const findCars = cars[id]
     return (
-        // <div className={classes.root}>
-        <Container fixed>
-            <Paper elevation={3} >
+        <Container className={classes.root}>
+            <Paper className ={classes.root} elevation={3}>
                 <h2>{findCars.Name}</h2> 
                 <Chip label={`id: ${findCars.id}`} />
                 <Chip label={`Miles_per_Gallon: ${findCars.Miles_per_Gallon}`} /> 
